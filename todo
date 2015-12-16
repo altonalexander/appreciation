@@ -1,0 +1,19 @@
+increase the memory per node to 3.5GB per node as a default
+export PYSPARK_SUBMIT_ARGS='--executor-memory 5g'
+
+start hadoop, spark, ipython
+/opt/hadoop/sbin/start-dfs.sh
+/opt/spark/sbin/start-all.sh
+ipython notebook
+
+load data into hadoop
+bin/hadoop fs -mkdir /appreciation/raw-data
+bin/hadoop fs -put /home/alton/Documents/appreciation/raw-data/* /appreciation/raw-data/
+
+increase data replication to all nodes in hadoop
+bin/hadoop fs -setrep -w 7 /appreciation/raw-data/*
+
+connect to data in hadoop from spark
+
+load data into data frame
+
